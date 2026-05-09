@@ -67,3 +67,39 @@ def dirReduc(arr):
     return checked
 
 print(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]))
+
+"""
+opposite = {'NORTH': 'SOUTH', 'EAST': 'WEST', 'SOUTH': 'NORTH', 'WEST': 'EAST'}
+
+def dirReduc(plan):
+    new_plan = []
+    for d in plan:
+        if new_plan and new_plan[-1] == opposite[d]:
+            new_plan.pop()
+        else:
+            new_plan.append(d)
+    return new_plan
+"""
+
+"""
+def dirReduc(arr):
+    dir = " ".join(arr)
+    dir2 = dir.replace("NORTH SOUTH",'').replace("SOUTH NORTH",'').replace("EAST WEST",'').replace("WEST EAST",'')
+    dir3 = dir2.split()
+    return dirReduc(dir3) if len(dir3) < len(arr) else dir3
+"""
+
+"""
+def dirReduc(arr):
+    opp = {"NORTH" : "SOUTH",
+           "SOUTH" : "NORTH",
+           "WEST" : "EAST",
+           "EAST" : "WEST"}
+    stack = []
+    for a in arr:
+        if len(stack) == 0 or stack[-1] != opp[a]:
+            stack.append(a)
+        else:
+            stack.pop()
+    return stack
+"""
