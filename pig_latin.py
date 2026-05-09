@@ -20,6 +20,7 @@ def pig_it(text):
         else:
             position = 0
             current_word = []
+            starting_letter = ""
             for char in word:
                 position += 1
                 if not char.isalpha():

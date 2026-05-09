@@ -31,6 +31,7 @@ S:S - Draw      options[2]:option[2]
 This solution is so over complicated compared to what was required.
 
 Simple as:
+"""
 def rps(p1, p2):
     if p1 == p2:
         return 'Draw!'
@@ -55,28 +56,28 @@ def rps(p1, p2):
 
     if p1 == options[0]:
         if p2 == options[1]:
-            return "Player 2 won"
+            return "Player 2 won!"
         elif p2 == options[2]:
-            return "Player 1 won"
+            return "Player 1 won!"
         else:
             return "Draw!"
 
     if p1 == options[1]:
         if p2 == options[2]:
-            return "Player 2 won"
-            return None
+            return "Player 2 won!"
         elif p2 == options[0]:
-            return "Player 1 won"
+            return "Player 1 won!"
         else:
             return "Draw!"
 
     if p1 == options[2]:
         if p2 == options[0]:
-            return "Player 2 won"
+            return "Player 2 won!"
         elif p2 == options[1]:
-            return "Player 1 won"
+            return "Player 1 won!"
         else:
             return "Draw!"
 
 result = rps(player1_input, player2_input)
 print(result)
+"""

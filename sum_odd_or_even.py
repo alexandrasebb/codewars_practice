@@ -30,6 +30,10 @@ def odd_or_even(arr):
     else:
         return "odd"
 
+print(odd_or_even([0, 1, 4]))
+print(odd_or_even([0]))
+print(odd_or_even([0, -1, -5]))
+
 """
 def oddOrEven(arr):
     return 'even' if sum(arr) % 2 == 0 else 'odd'

@@ -23,9 +23,11 @@ def find_next_square(sq):
     if sq % sq**(1/2) == 0:
         n = sq**(1/2)
         difference = n + (n + 1)
-        return sq + difference
+        return int(sq + difference)
+    else:
+        return -1
 
-    return -1
+print(find_next_square(81))
 
 """
 def find_next_square(sq):

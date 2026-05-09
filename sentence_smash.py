@@ -26,3 +26,5 @@ This is for beginners so we want to test basic loops and string manipulation.
 
 def smash(words):
     return " ".join(words)
+
+print(smash(['hello', 'world', 'this', 'is', 'great']))
