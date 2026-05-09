@@ -53,9 +53,17 @@ Notes
 
 def dirReduc(arr):
     dir_dict = {"NORTH": 1, "SOUTH": -1, "EAST": 2, "WEST": -2}
-    count = 0
-    for direction in arr:
-        count += 1
-        current_direction = dir_dict[direction]
-        if current_direction == 0:
 
+    checked = []
+
+    for direction in arr:
+        if len(checked) == 0:
+            checked.append(direction)
+        else:
+            if dir_dict[direction] + dir_dict[checked[-1]] == 0:
+                checked.pop()
+            else:
+                checked.append(direction)
+    return checked
+
+print(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]))
