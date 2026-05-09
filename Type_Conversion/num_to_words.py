@@ -35,10 +35,10 @@ def int_to_english(n):
                     15: "quadrillion",
                     18: "quintillion",
                     21: "sextillion",
-                    24: "septillion"
-                    } # powers of 10 in words to the one below 10^26 required by the challenge
+                    24: "septillion"} # powers of 10 in words to the one below 10^26 required by the challenge
 
-    ones = {1: "one",
+    ones = {0: "zero",
+            1: "one",
             2: "two",
             3: "three",
             4: "four",
@@ -46,7 +46,7 @@ def int_to_english(n):
             6: "six",
             7: "seven",
             8: "eight",
-            9: "nine"}
+            9: "nine"} # names of individual digits
 
     teens = {11: "eleven",
              12: "twelve",
@@ -56,7 +56,7 @@ def int_to_english(n):
              16: "sixteen",
              17: "seventeen",
              18: "eighteen",
-             19: "nineteen"}
+             19: "nineteen"} # names of two digit numbers not 10
 
     tens = {10: "ten",
             20: "twenty",
@@ -66,10 +66,7 @@ def int_to_english(n):
             60: "sixty",
             70: "seventy",
             80: "eighty",
-            90: "ninety"}
-
-    if n == 0: # zero isn't in my dicts anymore
-        return "zero"
+            90: "ninety"} # names of ten values
 
     if n in ones or n in teens or n in tens: # checks if the number is in any of the dicts and if it is returns that
         if n in ones:
@@ -84,13 +81,17 @@ def int_to_english(n):
 
         # gets the length of original input
         num_length = len(str(n))
+        # TODO: use num length to chop up numbers into three digit parts
         # print(num_length)
 
         # convert string to int within the list
         expanded = list(map(int, expanded))
 
-        if num_length < 4:
-            # figure out how to handle each component
+        if n < 1000:
+            three_digits_to_words(expanded, ones, teens, tens, place_values)
+
+            # TODO: move this to it's own function, call on each chunk
+
             number_string_list = [] # list to put words in
 
             for component in expanded: # looking at the expanded form parts
@@ -114,9 +115,9 @@ def int_to_english(n):
                     number_string_list.append(ones[component])
 
             num_string = " ".join(number_string_list).lower() # stitches everything together and lowers for challenge output
-            return num_string
+        return num_string
 
-print(int_to_english(999))
+print(int_to_english(550))
 
 """
 def numberToWords(n):
