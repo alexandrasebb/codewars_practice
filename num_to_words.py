@@ -10,17 +10,18 @@ Classwork
 # Handle special cases like teens (11–19) which have unique names
 # Combine the words in the correct order with appropriate place names
 """
+
 def expanded_form(num):
-    digits = list(str(num))[::-1]
+    digits = list(str(num))[::-1] # turns number into a string, then list and flips the order
 
     parts = []
-    index = 0
+    index = 0 # counter for number of zeroes to append
 
-    for d in digits:
-        if d != '0':
+    for d in digits: # as int was turned to str we can iterate
+        if d != '0': # checks if the digit is 0 and if not adds it and the number of zeroes appropriate to the place value
             parts.append(d + ('0' * index))
-        index = index + 1
-    return " + ".join(parts[::-1])
+        index = index + 1 # adds one to move to the next place value
+    return " + ".join(parts[::-1]) # flips the list back and joins them as a string of numbers separated by +
 
 def num_to_words(num):
     place_values = {2: "hundred",
@@ -32,7 +33,7 @@ def num_to_words(num):
                     18: "quintillion",
                     21: "sextillion",
                     24: "septillion"
-                    }
+                    } # powers of 10 in words to the one below 10^26 required by the challenge
 
     set_numbers = {0: "Zero",
                    1: "One",
@@ -62,35 +63,26 @@ def num_to_words(num):
                    70: "Seventy",
                    80: "Eighty",
                    90: "Ninety"
-                   }
+                   } # specific words for numbers that don't follow the naming pattern
 
-    digits = list(str(num))
+    digits = list(str(num)) # turns input into list to iterate over
     parts = []
 
-    if num in set_numbers:
+    if num in set_numbers: # checks if the number is in the set_numbers dict and if it is returns that
         return f"{set_numbers[num]}"
     else:
         # split the number
-        expanded = expanded_form(num)
+        expanded = expanded_form(num) # gets the string from the helper
 
-        # get length of original input
-        for digit in digits:
-            parts.append(digit)
-        length = len(parts)
-        print(length)
-
-        """
-        I think this does the same
+        # gets the length of original input
         num_length = len(str(num))
-        print(num_length)
-        """
+        # print(num_length)
 
         # convert string to int within the list
-        expanded = list(map(str, expanded.split(" + ")))
+        expanded = list(map(str, expanded.split(" + "))) # removes + from string
         expanded = list(map(int, expanded))
-        print(expanded)
 
-        if length < 4:
+        if num_length < 4:
             # figure out how to handle each component
             number_string_list = [] # list to put words in
 
@@ -104,25 +96,23 @@ def num_to_words(num):
                     number_string_list.append(word) # adds to the list
 
                 elif component_len == 2: # tens logic
-                    word = set_numbers[component] # gets the component from set values because it's already split!
-                    number_string_list.append(word)
+                    if component + expanded[-1] in set_numbers: # deals with teens, sort of
+                        # going to have to use enumerate:
+                        # https://www.geeksforgeeks.org/python/enumerate-in-python/
+                        new_number = set_numbers[(component + expanded[-1])]
+                        number_string_list.append(new_number)
+                        break # don't add the final digit value
+                    else:
+                        word = set_numbers[component] # gets the component from set values because it's already split!
+                        number_string_list.append(word)
 
                 elif component_len == 1:
                     number_string_list.append(set_numbers[component])
 
-            num_string = " ".join(number_string_list).lower()
+            num_string = " ".join(number_string_list).lower() # stitches everything together and lowers for challenge output
             return num_string
 
-
-
-
-
-
-
-
-
-
-
+print(num_to_words(310))
 
 """
         for digit in digits:
@@ -132,11 +122,8 @@ def num_to_words(num):
             expanded = expanded_form(num)
             if length == 2:
                 pass
-        return"""
-
-print(num_to_words(342))
-
-
+        return
+"""
 
 """
 def numberToWords(num):
