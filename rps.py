@@ -1,4 +1,6 @@
 """
+https://www.codewars.com/kata/5672a98bdbdd995fad00000f
+
 Rules of the "Rock, Paper, Scissors" game are:
 
     Rock beats Scissors,

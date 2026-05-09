@@ -1,5 +1,6 @@
 """
 https://www.codewars.com/kata/59df2f8f08c6cec835000012/python
+
 John has invited some friends. His list is:
 
 s = "Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill";
