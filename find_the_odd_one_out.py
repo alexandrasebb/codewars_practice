@@ -67,3 +67,16 @@ def find_uniq(arr):
         if num != standard:
             return num
 """
+"""
+def find_uniq(arr):
+    # Determine which number is the "common" one using the first 3 elements
+    # Sorting them briefly makes the middle element (index 1) always the common one
+    # because there's only ONE unique value.
+    s = sorted(arr[:3])
+    common = s[1] 
+    
+    # Now just find the one that isn't common
+    for x in arr:
+        if x != common:
+            return x
+"""
