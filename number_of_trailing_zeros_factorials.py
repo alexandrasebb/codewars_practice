@@ -17,6 +17,6 @@ N 	Product 	N factorial 	Trailing zeros
 
 Hint: You're not meant to calculate the factorial. Find another way to find the number of zeros.
 """
-
+# TODO: solve
 def zeros(n):
     return 0
