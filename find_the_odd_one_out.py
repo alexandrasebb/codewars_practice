@@ -42,6 +42,7 @@ def find_uniq(arr):
                         return num
 
     return seen_numbers[-1]
+
 print(find_uniq([ 1, 1, 1, 2, 1, 1 ]))
 
 """
