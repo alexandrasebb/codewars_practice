@@ -22,7 +22,7 @@ def alphabet_position(text):
     result = []
     for char in text.lower():
         if char.isalpha() and char.islower():
-            code = ord(char) - 96
+            code = ord(char) - 96 # - 64 for upper
             result.append(str(code))
         else:
             pass
@@ -30,7 +30,7 @@ def alphabet_position(text):
     result = " ".join(result)
     return result
 
-print(alphabet_position("The sunset sets at twelve o' clock."))
+print(alphabet_position(input()))
 
 """
 def alphabet_position(text):
