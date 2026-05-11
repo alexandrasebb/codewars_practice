@@ -1,0 +1,27 @@
+"""
+https://www.codewars.com/kata/51f2d1cafc9c0f745c00037d/train/python
+
+Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+
+Examples:
+
+Inputs: "abc", "bc"
+Output: true
+
+Inputs: "abc", "d"
+Output: false
+
+References:
+https://www.codecademy.com/resources/docs/python/strings/endswith
+"""
+
+def solution(text, ending):
+    if text.endswith(ending):
+        return True
+    else:
+        return False
+
+"""
+def solution(string, ending):
+    return string.endswith(ending)
+"""
