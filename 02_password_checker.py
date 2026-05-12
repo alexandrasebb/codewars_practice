@@ -28,12 +28,41 @@ Examples:
 
 
 def simple_password(password_str):
-    pass
+    # Check length is between 8 and 30
+    if len(password_str) < 8 or len(password_str) > 30:
+        return "False"
 
+    # Check specific requirements
+    uppercase_check = []
+    digits_check = []
+    punctuation_check = []
+    for char in password_str:
+        # check for upper
+        if char.isupper():
+            uppercase_check.append(True)
+        else:
+            uppercase_check.append(False)
+        # check for digits
+        if char.isdigit():
+            digits_check.append(True)
+        else:
+            digits_check.append(False)
+        # check for punctuation
+        if char in ".,!?:;":
+            punctuation_check.append(True)
+        else:
+            punctuation_check.append(False)
 
+    if True not in uppercase_check or True not in digits_check or True not in punctuation_check:
+        return "False"
 
-# print(simple_password("A"))          # → "false"
-# print(simple_password("apPle!m7"))          # → "true"
-# simple_password("passWord123!!!!")   # → "false" (contains "password")
-# simple_password("turkey90AAA!")      # → "true"
-# simple_password("short")             # → "false" (multiple failures)
+    if "password" in password_str.lower():
+        return "False"
+
+    return "True"
+
+print(simple_password("A"))          # → "false"
+print(simple_password("apPle!m7"))          # → "true"
+print(simple_password("passWord123!!!!"))   # → "false" (contains "password")
+print(simple_password("turkey90AAA!"))      # → "true"
+print(simple_password("short"))             # → "false" (multiple failures)
